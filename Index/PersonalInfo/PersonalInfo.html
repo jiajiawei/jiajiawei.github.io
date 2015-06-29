@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+		<script type="text/javascript">
+			function showActionSheet() {
+				plus.nativeUI.actionSheet({
+						cancel: "取消",
+						buttons: [{
+							title: "拍照"
+						}, {
+							title: "相册"
+						}]
+					},
+					function(e) {
+						if (e.index == 1) {
+							cameraCap();
+						} else if (e.index == 2) {
+							galleryPick();
+						}
+					}
+				);
+			}
+
+			function cameraCap() {
+				var cmr = plus.camera.getCamera();
+				cmr.captureImage(function(p) {
+					plus.io.resolveLocalFileSystemURL(p, function(entry) {
+						createItem(entry);
+					}, function(e) {});
+				}, function(e) {}, {
+					filename: "_doc/camera/",
+					index: 1
+				});
+			}
+
+			function galleryPick() {
+					plus.gallery.pick(function(e) {
+						alert(e);
+					}, function(e) {}, {
+						filter: "image"
+					});
+				}
+				// 添加播放项
+
+			function createItem(entry) {
+					var li = document.createElement("li");
+					li.className = "ditem";
+					li.innerHTML = '<span class="iplay"><font class="aname"></font><br/><font class="ainf"></font></span>';
+					li.setAttribute("onclick", "displayFile(this);");
+					hl.insertBefore(li, le.nextSibling);
+					li.querySelector(".aname").innerText = entry.name;
+					li.querySelector(".ainf").innerText = "...";
+					li.entry = entry;
+					updateInformation(li);
+					// 设置空项不可见
+					le.style.display = "none";
+				}
+				// 获取录音历史列表
+
+			function updateHistory() {
+				if (!gentry) {
+					return;
+				}
+				var reader = gentry.createReader();
+				reader.readEntries(function(entries) {
+					for (var i in entries) {
+						if (entries[i].isFile) {
+							createItem(entries[i]);
+						}
+					}
+				}, function(e) {
+					outLine("读取录音列表失败：" + e.message);
+				});
+			}
+		</script>
+	</head>
+
+	<body>
+		<input type="button" id="action" value="弹出" onclick="showActionSheet()" />
+	</body>
+
+</html>
