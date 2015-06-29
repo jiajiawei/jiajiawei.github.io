@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.css" rel="stylesheet" />
+		<style>
+			body,
+			.mui-content {
+				background-color: #333;
+				color: #fff;
+			}
+			header.mui-bar {
+				display: none;
+			}
+			.mui-bar-nav~.mui-content {
+				padding: 0;
+			}
+			.title {
+				margin: 35px 15px 10px;
+			}
+			.title+.content {
+				margin: 10px 15px 35px;
+				color: #bbb;
+				text-indent: 1em;
+				font-size: 14px;
+				line-height: 24px;
+			}
+			.mui-table-view {
+				margin-bottom: 35px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="content">
+				
+			</div>
+			<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">主页</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">企业资料</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">我的工程</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">我的收藏</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">设置</a>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript" charset="utf-8">
+			mui.init({
+				keyEventBind: {
+					backbutton: false,
+					menubutton: false
+				}
+			});
+			 //获得侧滑主窗口webview对象
+			var main = null;
+			mui.plusReady(function() {
+				main = plus.webview.currentWebview().opener();
+			})
+
+			function closeMenu() {
+					mui.fire(main, "menu:swipeleft");
+				}
+				//优化显示出来的侧滑菜单，只需监听该菜单的左滑事件，然后将其关闭即可；在菜单上右滑，不做任何操作；
+			window.addEventListener("swipeleft", closeMenu);
+			document.getElementById("close-btn").addEventListener('tap', closeMenu);
+			mui.menu = closeMenu;
+		</script>
+	</body>
+
+</html>
