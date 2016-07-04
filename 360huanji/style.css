@@ -1,0 +1,61 @@
+/*初始化 开始*/
+*{ margin:0; padding:0;}
+body{ font-family:"Microsoft YaHei";}
+html,body{ width:100%; height:100%; text-shadow:1px 2px 4px rgba(0, 0, 0, 0.5);}
+a{ color:#fff; text-decoration:none; outline:none;}
+a:hover{ text-decoration:none; color:#fff;}
+/*初始化 结束*/
+
+/*顶部导航 开始*/
+#nav{ width:100%; position:fixed; top:26px; z-index:10;}/*给nav加z-index*/
+h1{ float:left; display:inline-block; width:226px; height:47px; background:url(images/logo.png) no-repeat 0 0; margin-left:60px; text-indent:-999px; overflow:hidden;}
+#nav ul{ float:right; padding-right:60px; position:relative;}
+#nav ul li{ float:left; display:inline; margin-left:27px; height:30px; line-height:30px; padding:0 14px; font-size:14px;}
+#nav li a{ color:#c2d5eb;}
+#nav li a:hover{ color:#fff;}
+#nav .current a{ color:#fff; cursor:pointer;}
+#nav .nav_focus{ border: 1px solid rgba(163, 196, 236, 0.6); margin-left:0; position:absolute; top:0; text-indent:-999em; border-radius:15px; z-index:-1; overflow:hidden;}/*加z-index*/
+/*顶部导航 结束*/
+
+/*左侧导航 开始*/
+#l-nav{ width:100px; height:324px; background:url(images/nav.png) no-repeat 0 0; position:fixed; top:30%; left:60px;}
+#l-nav ul{ color:rgba(255,255,255,0.9); font-size:12px; margin-top:7px;}
+#l-nav li{ margin-bottom:56px; padding-left:45px; line-height:21px; cursor:pointer;}
+#l-nav li.change{ background:url(images/nav_cur.png) no-repeat 0 -1px;}
+/*.weibo{ display:block; height:24px; line-height:24px; background:url(images/weibo.png) no-repeat 0 50% padding-left:44px; margin-bottom:30px; font-size:14px; color:#dcecff;}*/
+/*左侧导航 结束*/
+
+/*视频按钮 开始*/
+.vedio{ display:block; height:82px; line-height:82px; font-size:18px; color:#dcecff; position:fixed; left:60px; bottom:6%; padding-left:77px; z-index:11;}
+.vedio span{ display:block; width:61px; height:82px; line-height:82px; background:url(images/video.png) no-repeat center center; text-indent:-999px; position:absolute; top:0; left:0; overflow:hidden; background-size:70% auto; transition:linear 0.2s; -webkit-transition:linear 0.2s;}/*图片尺寸*/
+.vedio:hover span{ transform:rotate(360deg); -webkit-transform:rotate(360deg);}
+/*视频按钮 结束*/
+
+/*右侧微信 开始*/
+.weixin{ width:200px; background:rgba(163, 196, 236, 0.11); border-top:2px solid rgba(220, 236, 255, 0.57); border-bottom:2px solid rgba(220, 236, 255, 0.57); position:fixed; top:20%; right:60px; padding:27px 0 20px; text-align:center;}
+.weixin a{ display:inline-block;}
+.phone{ width:105px; height:26px; line-height:26px; background:url(images/iphone.png) no-repeat 0 0; font-size:20px; padding-left:25px; margin-bottom:30px; color:#dcecff;}
+.phone:hover{ background-position:0 -26px; color:#23dd91;}
+.pc{ width:197px; height:75px; line-height:0; background:url(images/btn.png) no-repeat 0 0; font-size:0; overflow:hidden;}/*有文字，但是文字高度为0，行高为0；*/
+.pc:hover{ background-position:0 -75px;}
+/*右侧微信 结束*/
+
+
+/*内容 开始*/
+#content{ height:100%; list-style:none;}
+.size{ width:100%; height:100%;}
+.div1{ position:relative; background:url(images/bg_01.jpg) no-repeat center center fixed;}/*子绝父相，pic跟随div一起消失*/
+.div2{ position:relative; background:url(images/bg_02.jpg) no-repeat center center fixed;}
+.div3{ position:relative; background:url(images/bg_03.jpg) no-repeat center center fixed;}
+.div4{ position:relative; background:url(images/bg_04.jpg) no-repeat center center fixed;}
+#content p{ color:#fff; position:absolute; left:29%; z-index:6;}
+#content .div1 p,#content .div4 p{ font-size:28px; line-height:40px; top:65px;}
+#content .div2 p,#content .div3 p{ font-size:28px; line-height:40px; top:65px;}
+#content div span{ display:block; width:100%; height:14px; line-height:14px; margin-top:4px; font-size:14px;}
+#content .pic{ width:100%; height:100%; position:absolute; top:0; right:0; bottom:0; left:0; background-position:center 64%; background-repeat:no-repeat; background-size:40% auto;}/*background-size:图片尺寸大小*//*四个方向为：0,,加上定位，使得：垂直居中*/
+#content .pic1{ background-image:url(images/1.png);}
+#content .pic2{ background-image:url(images/2.png);}
+#content .pic3{ background-image:url(images/3.png);}
+#content .pic4{ background-image:url(images/4.png);}
+/*内容 结束*/
+

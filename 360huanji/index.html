@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>360换机页面模仿</title>
+<script type="text/javascript" src="jq.js"></script>
+<script type="text/javascript">
+$(function(){
+	/*********************滚动函数*********************/
+	$(window).scroll(function(){
+		var n=parseInt($(window).scrollTop()/$(window).height());
+		$("#l-nav ul li").eq(n).addClass("change").siblings().removeClass("change");	
+	})	
+	
+})
+</script>
+
+
+<script type="text/javascript">
+	/**********************顶部导航*************************/
+$(function(){
+	$('#nav li').mouseover(function(e) {
+        $(this).addClass("current").siblings().removeClass("current");
+		
+		if($("#nav li:eq(1)").hasClass("current")){
+		$('#nav .nav_focus').stop().animate({left:109,width:56},200);
+		}
+		
+		if($("#nav li:eq(2)").hasClass("current")){
+		$('#nav .nav_focus').stop().animate({left:220,width:28},200);
+		}
+		
+		if($("#nav li:eq(3)").hasClass("current")){
+		$('#nav .nav_focus').stop().animate({left:303,width:73},200);
+		}
+		
+    });
+	
+	$('#nav li').mouseout(function(e) {
+//         $('#nav .nav_focus').stop().animate({left:26,width:28},200);
+// 		$("#nav li:eq(0)").addClass("current").siblings().removeClass("current");
+		
+    });
+	
+	})
+</script>
+
+<script type="text/javascript">
+$(function(){
+	/**********************左侧导航*************************/
+	$("#l-nav ul li").click(function(e) {
+		var m=$(this).index();
+		var h=$(window).height();
+		//$("#content").children("div").eq(m).scrollTop(0);
+		
+		//注意：滚动要对于html和Body来说，不能对于#content来说
+		$('html,body').animate({scrollTop:m*h},500);
+		//$('#content .pic').css('background',);
+	})	
+})
+</script>
+
+</head>
+
+<body>
+<!--导航 开始-->
+<div id="nav">
+	<h1>360安全换机</h1>
+    <ul>
+    	<li class="current">
+        	<a href="index.html">首页</a>
+        </li>
+        <li>
+        	<a href="#">常见问题</a>
+        </li>
+        <li>
+        	<a href="#">论坛</a>
+        </li>
+        <li>
+        	<a href="#">360首页>></a>
+        </li>
+        <li class="nav_focus" style="left:26px; width:28px;">焦点</li>
+    </ul>
+</div>
+<!--导航 结束-->
+
+<!--页面主体翻转 开始-->
+<div id="content">
+    <div class="size div1">
+    	<p>
+        	首款保护换机安全的软件<br>
+			换手机必备
+        </p>
+        <div class="pic pic1"></div>
+    </div>
+    <div class="size div2">
+    	<p>
+        	无需联网<br>
+			手机资料直接对传，安全快捷<br>
+			<span>点对点私密网络，无需上传，保护隐私安全，创新使用Wi-Direct技术，速度比蓝牙快60倍</span>
+        </p>
+        <div class="pic pic2"></div>
+    </div>
+    <div class="size div3">
+    	<p>
+        	隐私粉碎器<br>
+			彻底销毁隐私数据，避免人财两失<br>
+			<span>全网唯一推出防恢复的数据粉碎功能，全盘擦除隐私资料，永绝后患</span>
+        </p>
+        <div class=" pic3 pic"></div>
+    </div>
+    <div class="size div4">
+    	<p>
+        	九大类资料一键转移<br>
+			还支持聊天记录、连接过的WiFi热点
+        </p>
+        <div class="pic pic4"></div>
+    </div>
+</div>
+<!--页面主体翻转 结束-->
+
+<!--左侧滚动导航 开始-->
+<div id="l-nav">
+	<!--<a href="#" class="weibo">官方微博</a>-->
+	<ul>
+    	<li class="change">安全换机</li>
+        <li>无网对传</li>
+        <li>隐私粉碎</li>
+        <li>一键转移</li>
+    </ul>
+</div>
+<!--左侧滚动导航 结束-->
+
+<a class="vedio" href="#">
+	<span>播放按钮</span>
+    观看视频
+</a>
+
+<!--右侧微信 开始-->
+<div class="weixin">
+	<a href="#" class="phone">下载到手机</a>
+	<a href="#" class="pc">下载到电脑</a>
+    <img src="images/weixin.png" width="100%">
+</div>
+<!--右侧微信 结束-->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
