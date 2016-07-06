@@ -1,25 +1,58 @@
 <!DOCTYPE html>
 <html lang="zh">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-        <link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap-theme.min.css" rel="stylesheet">
-        <style type="text/css">
 
-        </style>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/dialog.css" rel="stylesheet">
+    <style type="text/css">
+        .wrap {
+            width: 500px;
+            height: 300px;
+            margin: 200px auto;
+        }
+        
+        .wrap button {
+            width: 200px;
+            margin: 10px 20px;
+        }
+    </style>
 </head>
+
 <body>
-<div class="wrap">
-    <div class="col-sm-offset-2 col-sm-10">
+    <div class="wrap">
         <button id="btn0" type="button" class="btn btn-default">默认值</button>
         <button id="btn1" type="button" class="btn btn-primary">弹出confirm</button>
         <button id="btn2" type="button" class="btn btn-success">弹出alert</button>
         <button id="btn3" type="button" class="btn btn-info">延时关闭message</button>
     </div>
-</div>
-<script>
-    
-</script>
+    <!--<div id="jw-dialog" class="jw-dialog-wrapper">
+        <div class="jw-dialog-main">
+            <p class="jw-dialog-title">默认标题</p>
+            <p class="jw-dialog-content">是一段默认的内容啊这里是一段默认的内容啊,这里是一段默认的内容啊,这里是一段默认的内容啊!</p>
+            <p id="jw-dialog-footer" class="jw-dialog-footer">
+                <span id="btn-ok" class="btn-ok">确定</span><span id="btn-cancel" class="btn-cancel">取消</span>
+            </p>
+        </div>
+    </div>-->
+    <script src="js/dialog.js"></script>
+    <script>
+        document.getElementById('btn0').onclick = function(){
+            new Dialog();
+        }
+        document.getElementById('btn1').onclick = function(){
+            new Dialog({'type':'confirm'});
+        }
+        document.getElementById('btn2').onclick = function(){
+            new Dialog({'type':'alert', 'title':'标题2', 'content':'这是一段内容,这是一段内容,这是一段内容,这是一段内容!'});
+        }
+        document.getElementById('btn3').onclick = function(){
+            new Dialog({'type':'delay', 'title':'自动关闭...'});
+        }
+    </script>
 </body>
+
 </html>
