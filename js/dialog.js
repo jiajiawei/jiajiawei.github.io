@@ -76,6 +76,9 @@
 
         addEvents: function(){
             var that = this;
+            this.dialog.onclick = function(e){
+                e.stopPropagation();
+            };
             this.wrapper.onclick = function(){
                 that.close();
             };

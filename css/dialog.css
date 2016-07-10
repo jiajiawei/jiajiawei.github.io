@@ -40,19 +40,19 @@
 
 .jw-dialog-footer{
     height: 40px;
+    text-align: center;
     border-top: 1px solid #44aaaa;
 }
 
 .jw-dialog-footer span{
     display: inline-block;
-    width: 50%;
     height: 40px;
     line-height: 40px;
     margin:0 auto;
     font-size: 14px;
-    text-align: center;
     color:#00aa00;
     cursor:pointer;
+    padding: 0 20%;
 }
 
 .jw-dialog-footer span.btn-cancel{
