@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title>接我</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <span class="return"></span>
+        <p>林萃桥—奥北科技园</p>
+        <span class="book"></span>
+    </div>
+    <div class="content">
+        <p class="time"></p>
+        <p class="number"><span></span>张</p>
+        <p class="key">你好呀</p>
+        <a href="#" class="share">分享有礼</a>
+        <p class="desc">车票有效期倒计时<span class="half">30:00</span></p>
+    </div>
+</body>
+<script>
+    var key = getQueryString('key');
+    if (key) {
+        document.querySelector('.key').textContent = decodeURI(key);
+    }
+
+    var time = new Date();
+    var year = time.getFullYear();
+    var month = ff(time.getMonth() + 1);
+    var date = time.getDate();
+    var tc = year + '年' + month + '月' + date + '日';
+    document.querySelector('.time').textContent = tc;
+
+    var desc = 30 * 60;   //30分钟
+    setInterval(function () {
+        desc -= 1;
+        var display = ff(parseInt(desc / 60)) + ":" + ff(desc % 60);
+        document.querySelector('.half').textContent = display;
+    }, 1000);
+
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return r[2]; return null;
+    }
+
+    function ff(num) {
+        return num < 10 ? '0' + num : num;
+    }
+
+</script>
+
+</html>
