@@ -26,10 +26,19 @@
     </div>
 </body>
 <script>
+    var keyDom = document.querySelector('.key');
     var key = getQueryString('key');
     if (key) {
-        document.querySelector('.key').textContent = decodeURI(key);
+        keyDom.textContent = decodeURI(key);
     }
+
+    var colors = ['#FF0000', '#000', '#19B1B1'];
+    var colorIndex = 0;
+    setInterval(function () {
+        colorIndex = ++colorIndex > 2 ? 0 : colorIndex;
+        console.log(colorIndex);
+        keyDom.style.color = colors[colorIndex];
+    }, 500);
 
     var time = new Date();
     var year = time.getFullYear();

@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>testTecplot</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+    <style>
+			body
+			{
+				font-family: 'Times New Roman', Times, serif;
+				background-color: #bbbbbb;
+				margin: 0px;
+				overflow: hidden;
+			}
+    </style>
+</head>
+
+<body>
+    <div id="viewercontainer"></div>
+    <script src="sdvclient.js"></script>
+    <script>
+        // clinet viewer
+        var viewer;
+        var container = document.getElementById("viewercontainer");
+
+        // 调整rootDom大小与窗口大小一致
+        function resizeRootToWindow() {
+            SDV.Libs.$(container).width(document.documentElement.clientWidth).height(document.documentElement.clientHeight);
+        };
+
+        // 初始化viewer
+        viewer = new SDV.Viewer(container);
+        // 设置容器的初始尺寸
+        resizeRootToWindow();
+        viewer.resizeByRootDiv();
+        // 窗口尺寸改变时refresh
+        window.addEventListener('resize', function () {
+            resizeRootToWindow();
+            viewer.resizeByRootDiv();
+        }, false);
+        viewer.loadCAE('point--tubeflow.plt.dat');
+        
+    </script>
+</body>
+
+</html>
